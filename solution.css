@@ -1,0 +1,21 @@
+The issue can be resolved by adding specificity to the CSS selector or using the `:not()` pseudo-class selector to explicitly exclude the inner div from inheriting the hover effect. Here's an example:
+
+```css
+div#outer {
+  background-color: lightgray;
+}
+div#outer:hover {
+  background-color: lightblue;
+}
+div#inner {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+/* Solution using :not() */
+div#outer:not(:hover) > div#inner {
+  /*This line makes sure the inner element does not inherit the hover effect */
+}
+```
+
+This refined CSS ensures that the hover effect only applies to the outer div when directly hovered, preventing unexpected behavior.
